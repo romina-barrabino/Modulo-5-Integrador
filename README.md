@@ -1,7 +1,7 @@
 # Modulo-5-Integrador
 Actividad integradora de ETL
 
-#1) Extracción de datos
+# 1) Extracción de datos
 
 #Importo Pandas y numpy
 import pandas as pd
@@ -22,7 +22,7 @@ json_AsistenciasNuevas={
             'Texto':['Licencia','Asistio']
             }
 
-#2) Trasformación de datos:
+# 2) Trasformación de datos:
 
 #Creo un DataFrames desde csv_Asistencias y json_AsistenciasNuevas
 df_csv=pd.DataFrames(csv_Asistencias)
@@ -55,14 +55,14 @@ data_cleaned=data_cleaned.astype({
 #Convierto la columna Fechas al formato YYYY-MM-DD
 data_cleaned['Fecha']=pd.to_datatime(data_cleaned['Fecha'], errors='coerce',format='%Y-%m-%d')
 
-#3) Cargo los datos:
+# 3) Cargo los datos:
 #Llamo a data_cleaned como df
 df=data_cleaned
 
 print("\nDatos Cargados (Centralizados):")
 print(df)
 
-#4) Implementación de pruebas automaticas
+# 4) Implementación de pruebas automaticas
 
 #Importo Great expectations
 import great_expectations as ge
@@ -86,7 +86,7 @@ print("\nResultados de las Validaciones:")
 print(validation_results)
 #Como no pude descargar Great expectations no puedo visualizar los resultados que arroja, pero los detalle con el objetivo de que no resulten en error.
 
-#5) Reporte de resultados:
+# 5) Reporte de resultados:
 
 #Exporto un reporte de las validaciones a HTML
 df_ge.save_expectation_suite(discard_failed_expectations=False)

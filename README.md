@@ -22,7 +22,7 @@ json_AsistenciasNuevas={
             'Texto':['Licencia','Asistio']
             }
 
-# 2) Trasformación de datos:
+#2) Trasformación de datos:
 
 #Creo un DataFrames desde csv_Asistencias y json_AsistenciasNuevas
 df_csv=pd.DataFrames(csv_Asistencias)
@@ -62,22 +62,22 @@ df=data_cleaned
 print("\nDatos Cargados (Centralizados):")
 print(df)
 
-#4)Implementación de pruebas automaticas
+#4) Implementación de pruebas automaticas
 
 #Importo Great expectations
 import great_expectations as ge
 #Convierto el Dataframe df en un objeto Great Expectations
 df_ge=ge.from_pandas(data_loaded)
 
-# Expectativa1
+#Expectativa1
 df_ge.expect_column_values_to_not_be_null('Id_Numero')
-# Expectativa2
+#Expectativa2
 df_ge.expect_column_values_to_not_be_null('Nombre')
-# Expectativa3
+#Expectativa3
 df_ge.expect_column_values_to_be_unique('Id_Numero')
-# Expectativa4
+#Expectativa4
 df_ge.expect_column_values_to_be_of_type('Texto','varchar(50)')
-# Expectativa5
+#Expectativa5
 df_ge.expect_column_values_to_match_strftime_format('Fecha','%Y-%m-%d')
 
 #Ejecución de pruebas automatizadas
@@ -86,7 +86,7 @@ print("\nResultados de las Validaciones:")
 print(validation_results)
 #Como no pude descargar Great expectations no puedo visualizar los resultados que arroja, pero los detalle con el objetivo de que no resulten en error.
 
-#5)Reporte de resultados:
+#5) Reporte de resultados:
 
 #Exporto un reporte de las validaciones a HTML
 df_ge.save_expectation_suite(discard_failed_expectations=False)

@@ -86,7 +86,7 @@ print("\nResultados de las Validaciones:")
 print(validation_results)
 #Como no pude descargar Great expectations no puedo visualizar los resultados que arroja, pero los detalle con el objetivo de que no resulten en error.
 
-# 5) Reporte de resultados:
+# 5) Reporte de resultados
 
 #Exporto un reporte de las validaciones a HTML
 df_ge.save_expectation_suite(discard_failed_expectations=False)
